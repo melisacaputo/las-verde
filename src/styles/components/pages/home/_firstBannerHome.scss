@@ -1,0 +1,72 @@
+.firstBannerHomeContainer { 
+  @include flexible(block, center, center); 
+  text-align: center;
+  max-width: 95%;
+  margin: 0 auto;
+
+  .firstBannerHome-title {
+    bottom: 50px;
+    h2 {
+      @include font(32px, 46px, bold);
+    }
+
+    h4 {
+      @include font(20px, 32px, 500);
+    }
+
+    @media screen and (max-device-width: 450px) {
+      h2 {
+        @include font(24px, 46px, bold);
+      }
+
+      h4 { 
+        @include font(16px, 32px, 500);
+      }
+    }
+  }
+
+  .firstBannerHome-items {
+    @include flexible(flex, space-around, center);
+    margin: 70px auto 7px auto; 
+ 
+    div {
+      img {
+        width: 80px;
+        margin: auto;
+      }
+
+      p {
+        @include font(14px, 32px, bold);
+      }
+    }
+
+    @media screen and (max-device-width: 520px) {
+      display: grid;
+      grid-template-columns: 2fr 2fr;
+
+      div {
+        img {
+          width: 50px;
+        }
+        p {
+          font-size: 12px;
+        }
+      }
+    }
+
+    @media screen and (max-device-width: 410px) {
+      div {
+        img {
+          width: 50px;
+        }
+        p {
+          font-size: 10px;
+        }
+      }
+    }
+  }
+
+  .firstBannerHome-btnContainer {
+    margin: 50px auto 100px auto;
+  } 
+}

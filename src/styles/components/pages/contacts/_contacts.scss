@@ -1,0 +1,356 @@
+.contacts-container {
+  .contactInfo-container {
+    @include flexible(flex, space-evenly, center);
+    color: $darkGray;
+    background-color: $brightGray;
+    margin: 130px auto 0 auto;
+    padding: 100px 0;
+
+    .textForm-container {
+      @include flexible(flex, flex-start, center);
+      padding-top: 25px;
+      width: 100%;
+
+      .textForm {
+        max-width: 98%;
+        margin: 0 auto;
+        margin-left: 17%;
+
+        h2 {
+          @include font(32px, 46px, bold);
+        }
+
+        p {
+          @include font(20px, 32px, 500);
+        }
+
+        .textForm-LookingFor {
+          @include font(24px, 38px, 500);
+        }
+
+        .textFrom-SocialItems {
+          @include flexible(flex, flex-start, center);
+
+          .facebookIcon {
+            svg {
+              border-radius: 40%;
+              font-size: 2em;
+              fill: $darkGray;
+              margin-right: 10px;
+
+              &:hover {
+                fill: $facebook;
+              }
+            }
+          }
+
+          .instagramIcon {
+            svg {
+              background-color: $darkGray;
+              border-radius: 30%;
+              font-size: 2em;
+              fill: $white;
+              margin-left: 10px;
+
+              &:hover {
+                background-color: $instagram;
+                fill: $white;
+              }
+            }
+          }
+        }
+
+        .contact-data {
+          @include flexible(flex, flex-start, center);
+          margin: 10px 0;
+          cursor: pointer;
+
+          svg {
+            font-size: 2em;
+            fill: $darkGray;
+
+            &:hover {
+              fill: #000;
+            }
+          }
+          a {
+            text-decoration: none;
+            font-size: 18px;
+            color: $darkGray;
+            margin: 0px 20px;
+            &:hover {
+              color: #000;
+              font-weight: bold;
+            }
+          }
+        }
+        @media screen and (max-width: 880px) {
+          padding: 0px 30px;
+        }
+      }
+    }
+
+    .form-container {
+      width: 100%;
+      display: block;
+
+      form {
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+        padding: 0 5%;
+        max-width: 400px;
+
+        button {
+          margin-top: 10px;
+        }
+
+        .input-container {
+          position: relative;
+          margin: 10px 0px 15px 0px;
+          margin-right: 8%;
+
+          .label {
+            position: absolute;
+            padding: 0 2px;
+            left: 10px;
+            top: 14px;
+            color: $darkGray;
+            transition: all 0.2s;
+            z-index: 1;
+          }
+
+          .text-input {
+            font-family: inherit;
+            width: 100%;
+            padding: 0.8em;
+            border: 2px solid $brightGray;
+            color: $darkGray;
+            background: $white;
+            border-radius: 10px;
+            font-size: 18px;
+            outline: none;
+            transition: all 0.3s;
+          }
+
+          .label::before {
+            content: "";
+            height: 5px;
+            background: $white;
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 100%;
+            z-index: -1;
+          }
+
+          .text-input:focus {
+            border: 2px solid $button;
+          }
+
+          .text-input:focus + .label,
+          .text-input:valid + .label,
+          .filled {
+            top: -12px;
+            padding: 0 2px;
+            color: $button;
+            font-size: 18px;
+          }
+
+          .text-input::placeholder {
+            font-size: 16px;
+            opacity: 0;
+            transition: all 0.3s;
+          }
+
+          .text-input:focus::placeholder {
+            opacity: 1;
+            animation-delay: 0.2s;
+          }
+
+          textarea {
+            height: 6em;
+            resize: none;
+          }
+
+          .errorMessage {
+            @include font(12px, 18px, bold);
+            color: $error;
+            bottom: -20px;
+            margin: 4px;
+          }
+
+          .errorMessage-textArea {
+            @include font(12px, 18px, bold);
+            position: absolute;
+            color: $error;
+            bottom: -16px;
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+
+  .contactLocation-Container {
+    @include flexible(flex, center, center);
+    padding: 100px 5%;
+
+    @media screen and (max-width: 880px) {
+      padding-top: 40px;
+    }
+
+    .contactLocation-maps {
+      @include flexible(flex, center, center);
+      gap: 5em;
+
+      @media screen and (max-width: 880px) {
+        flex-direction: column-reverse;
+      }
+
+      .maps {
+        width: 750px;
+        height: 520px;
+        border-radius: 15px;
+        border: 0;
+      }
+
+      .contactLocation-info {
+        text-align: right;
+        top: 80px;
+
+        @media screen and (max-width: 880px) {
+          text-align: center;
+          padding: 0px;
+
+          img {
+            display: none;
+          }
+        }
+
+        h2 {
+          @include font(32px, 42px, bold);
+        }
+
+        p {
+          @include font(20px, 32px, 500);
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 1440px) {
+  .contactLocation-Container {
+    .contactLocation-maps {
+      gap: 4em;
+
+      .maps {
+        max-width: 550px;
+        height: 520px;
+      }
+    }
+
+    .contactLocation-info {
+      text-align: right;
+      top: 80px;
+    }
+  }
+}
+@media screen and (max-width: 1235px) {
+  .contactLocation-Container {
+    .contactLocation-maps {
+      gap: 1em;
+
+      .maps {
+        max-width: 400px;
+        height: 520px;
+      }
+    }
+
+    .contactLocation-info {
+      text-align: right;
+      top: 80px;
+    }
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .contacts-container {
+    .contactInfo-container {
+      margin-top: 0;
+      display: block;
+
+      .textForm-container {
+        padding: 50px 0 100px 0;
+
+        .textForm {
+          max-width: 550px;
+          text-align: center;
+          margin: 0 auto;
+
+          .textFrom-SocialItems {
+            justify-content: center;
+          }
+
+          .contact-data {
+            justify-content: center;
+          }
+        }
+      }
+    }
+
+    .contactLocation-Container {
+      .contactLocation-maps {
+        gap: 10px;
+
+        .maps {
+          max-width: 100%;
+        }
+
+        .contactLocation-info {
+          h2 {
+            width: 100%;
+            font-size: 26px;
+          }
+
+          p {
+            font-size: 16px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .contactInfo-container {
+    .textForm-container {
+      .textForm {
+        h2 {
+          @include font(29px, 46px, bold);
+        }
+
+        p {
+          @include font(18px, 32px, 500);
+        }
+
+        .textForm-LookingFor {
+          @include font(22px, 38px, 500);
+        }
+
+        .contact-data {
+          a {
+            text-decoration: none;
+            font-size: 16px;
+            color: $darkGray;
+            margin: 0px 20px;
+            &:hover {
+              color: $black;
+              font-weight: bold;
+            }
+          }
+        }
+      }
+    }
+  }
+}

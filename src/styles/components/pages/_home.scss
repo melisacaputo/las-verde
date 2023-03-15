@@ -1,0 +1,4 @@
+.homeContainer {
+  @include flexible(block, center, center);
+  width: 100%;
+}

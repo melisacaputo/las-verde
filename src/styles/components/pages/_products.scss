@@ -1,0 +1,317 @@
+.products-Container {
+  background-color: $brightGray;
+  width: 100%;
+
+  .productsHeader-Container {
+    @include flexible(flex, space-between, center);
+    padding: 150px 10%;
+    gap: 20px;
+
+    @media screen and (max-width: 880px) {
+      padding-bottom: 60px;
+    }
+
+    .headline-Products {
+      display: block;
+      max-width: 550px;
+
+      h2 {
+        @include font(32px, 46px, bold);
+      }
+
+      p {
+        @include font(20px, 32px, 50);
+      }
+    }
+
+    .headline-Image {
+      padding-top: 30px;
+
+      img {
+        padding-top: auto;
+        text-align: center;
+        max-width: 420px;
+
+        @media screen and (max-width: 880px) {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .cards-products {
+    display: grid;
+    place-content: center;
+    justify-content: center;
+    grid-template-columns: repeat(3, 1fr);
+    padding-bottom: 50px;
+
+    .itemContainer {
+      place-content: center;
+      max-width: 100%;
+      padding: 0 20px;
+
+      .card {
+        @include flexible(flex, center, center);
+        flex-direction: column;
+        margin: 0 auto;
+        background-color: $white;
+        max-width: 350px;
+        height: 580px;
+        padding: 20px;
+        border-radius: 20px;
+        text-align: center;
+        margin-bottom: 50px;
+
+        img {
+          width: 100%;
+        }
+
+        h2 {
+          @include font(24px, 46px, bold);
+        }
+
+        p {
+          @include font(16px, 22px, 500);
+          width: 75%;
+        }
+      }
+
+      .popUp-container {
+        @include position(0, 0, 0, 0);
+        display: grid;
+        place-content: center;
+        position: fixed;
+        background-color: rgba(0, 0, 0, 0.3);
+        padding: 0 20px;
+
+        .popUp-Body {
+          padding: 0 20px;
+          margin-left: -3.5%;
+          max-width: 600px;
+          max-height: 100%;
+          position: relative;
+          top: 70px;
+
+          .popUp-content {
+            position: relative;
+
+            .close {
+              @include position(8px, -30px, none, none);
+              position: absolute;
+              font-size: 30px;
+              cursor: pointer;
+
+              svg {
+                &:hover {
+                  fill: $facebook;
+                }
+              }
+            }
+
+            .popUp {
+              @include flexible(flex, center, center);
+              flex-direction: row;
+              width: 100%;
+              height: 100%;
+              background-color: $white;
+              padding: 20px;
+              border-radius: 20px;
+              margin: 0 20% 0 0;
+
+              div
+              .productImg {
+                text-align: center;
+                max-width: 250px;
+              }
+
+              div {
+                h2 {
+                  @include font(28px, 46px, bold);
+                  margin: 10px 0;
+                }
+
+                h3 {
+                  @include font(28px, 32px, 500);
+                  margin: 10px 0;
+                }
+
+                h4 {
+                  @include font(16px, 16px, 700);
+                  margin: 0;
+                }
+
+                p {
+                  @include font(16px, 22px, 500);
+                  text-align: justify;
+                  padding-right: 40px;
+                  margin: 10px 0;
+                }
+              }
+
+              .presentations {
+                @include flexible(flex, flex-start, center);
+                margin: 0;
+                gap: 10px;
+                
+                p {
+                  padding: 5px 0 15px;
+                }
+              }
+
+              .popUp-SocialItem {
+                @include flexible(flex, flex-start, center);
+                gap: 20px;
+            
+                .facebookIcon {
+                  align-items: center;
+                  svg {
+                    border-radius: 40%;
+                    font-size: 32px;
+                    fill: $darkGray;
+                    
+                    &:hover {
+                      fill: $facebook;
+                    }
+                  }
+                }
+
+                .instagramIcon {
+                  align-items: center;
+                  svg {
+                    background-color: $darkGray;
+                    border-radius: 30%;
+                    font-size: 32px;
+                    fill: $white;
+               
+                    &:hover {
+                      background-color: $instagram;
+                      fill: $white;
+                    }
+                  }
+                }
+
+                .whastsappIcon {
+                  align-items: center;
+                  svg {
+                    background-color: $darkGray;
+                    border-radius: 50%;
+                    font-size: 32px;
+                    fill: $white;
+                   
+                    &:hover {
+                      background-color: $whatsapp;
+                      fill: $white;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .products-Container .cards-products {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .products-Container {
+    .productsHeader-Container {
+      display: block;
+      text-align: center;
+    }
+
+    .cards-products {
+      @include flexible(flex, space-around, center);
+      flex-direction: column;
+      width: 100%;
+
+      .itemContainer
+      .popUp-container
+      .popUp-Body
+      .popUp-content {
+        .close {
+          @include position(8px, -22px, none, none);
+        }
+        .popUp {
+          div .productImg {
+            max-width: 200px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .products-Container {
+    .cards-products {
+      .itemContainer
+      .popUp-container {
+        .popUp-Body {
+          padding: 0 20px;
+          .popUp-content {
+            .close {
+              @include position(8px, -10px, none, none);
+              svg {
+                font-size: 26px;
+              }
+            }
+
+            .popUp {
+              @include flexible(block, center, center);
+              text-align: center;
+              padding: 10px;
+              margin-left: -1%;
+
+              div .productImg {
+                max-width: 150px;
+              }
+
+              div {
+                h2 {
+                  margin: 5px 0;
+                  @include font(24px, 32px, bold);
+                }
+
+                h4 {
+                  padding: 10px 0;
+                }
+
+                p {
+                  @include font(14px, 20px, 500);
+                  text-align: center;
+                  padding: 0 20px;
+                }
+              }
+
+              .presentations {
+                justify-content: center;
+
+                p {
+                  @include font(14px, 14px, 500);
+                  padding-bottom: 15px;
+                  margin: 0;
+                }
+              }
+
+              .popUp-SocialItem {
+                justify-content: center;
+                align-items: center;
+                margin: 0;
+                padding-bottom: 10px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

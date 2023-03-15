@@ -1,0 +1,88 @@
+.thirdBannerHomeContainer {
+  @include flexible(block, center, center);
+  @include position(5px, none, 100px, none);
+  position: relative;
+  text-align: right;
+  width: 100%;
+  height: 620px;
+
+  .thirdBannerHome-title {
+    @include font(28px, 40px, bold);
+    @include position(15%, 8%, none, none);
+    position: absolute;
+    max-width: 600px;
+    color: $white;
+  }
+
+  .thirdBannerHome-SubTittle {
+    @include font(20px, 22px, 500);
+    @include position(45%, 8%, none, none);
+    position: absolute;
+    max-width: 600px;
+    color: $white;
+  }
+
+  .thirdBannerHome-socialItem {
+    @include position(none, 7%, 20%, none);
+    position: absolute;
+
+    .facebookIcon {
+      svg {
+        background-color: $facebook;
+        border-radius: 50%;
+        font-size: 2em;
+        fill: $white;
+        margin: 20px;
+
+        &:hover {
+          background-color: $white;
+          fill: $facebook;
+        }
+      }
+    }
+
+    .instagramIcon {
+      svg {
+        background-color: $instagram;
+        border-radius: 30%;
+        font-size: 2em;
+        fill: $white;
+        margin: 20px;
+
+        &:hover {
+          background-color: $white;
+          fill: $instagram;
+        }
+      }
+    }
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+  }
+
+  @media screen and (max-width: 650px) {
+    text-align: center;
+
+    .thirdBannerHome-title {
+      @include font(24px, 46px, bold);
+      @include position(25%, 0, none, 0);
+      margin: auto;
+    }
+
+    .thirdBannerHome-SubTittle {
+      @include font(18px, 22px, 500);
+      @include position(50%, 0, none, 0);
+      margin: auto;
+      padding: 0 2%;
+    }
+
+    .thirdBannerHome-socialItem {
+      @include position(75%, 0, none, 0);
+      text-align: center;
+    }
+  }
+} 

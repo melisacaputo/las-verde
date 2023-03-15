@@ -1,0 +1,34 @@
+//Imports
+@import url("https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&family=Poppins:wght@300&display=swap");
+@import "./defaultStyles/colorPalette";
+@import "./defaultStyles/mixins";
+@import "./defaultStyles/button";
+@import "./components/navBar";
+@import "./components/footer";
+@import "./components/whatsApp";
+@import "./components/pages/about";
+@import "./components/pages/contacts/contacts";
+@import "./components/pages/contacts/successfulmessage";
+@import "./components/pages/home";
+@import "./components/pages/home/slider";
+@import "./components/pages/home/firstBannerHome";
+@import "./components/pages/home/secondBannerHome";
+@import "./components/pages/home/thirdBannerHome";
+@import "./components/pages/products";
+@import "./components/spinner"; 
+
+//Estilos generales 
+body {
+  margin: 0;
+  font-family: Poppins;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-margin-block-start: 0;
+  color: $darkGray;
+  background: $white;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
